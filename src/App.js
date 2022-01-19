@@ -1,7 +1,6 @@
 
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import NasaImg from './components/NasaImg';
 const apiKey = process.env.REACT_APP_NASA_KEY;
 
@@ -14,10 +13,12 @@ const [startDate, setstartDate] = useState(currentDate);
 const filterDate = () =>{
   const filteredDates =  allPhoto.filter(  (photoObj) =>{
       var photoDate = new Date(photoObj.date);
-      
       if(photoDate > startDate){
         return photoObj;
-      } } 
+      } 
+      else {return null; }
+    }
+      
       )   
       setPhotoData(filteredDates);
 }

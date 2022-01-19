@@ -3,11 +3,10 @@ import { useState} from 'react';
 import "./NasaImg.css";
 export default function NasaImg(props) {
   const photoData = props.photoData;
-  const [like, setLike] = useState();
   const [isLiked, setIsLiked ] = useState(false); 
   
   const onLike = () => {
-      if(isLiked == true)  {
+      if(isLiked === true)  {
          setIsLiked(false)
       }
       else setIsLiked(true);
@@ -16,7 +15,7 @@ export default function NasaImg(props) {
    if(photoData.media_type === "image")
    return (
       <div className = "cardContainer">
-         {photoData.media_type === "image" ? <img class = "picFrame" src = {photoData.hdurl} /> 
+         {photoData.media_type === "image" ? <img class = "picFrame" src = {photoData.hdurl} alt = "Space" /> 
             : (<iframe  src = {photoData.hdurl} title = "Nasa Picture" />) }
          <h2 className = "titleText" > {photoData.title} | {photoData.date} </h2>
          <div> 
